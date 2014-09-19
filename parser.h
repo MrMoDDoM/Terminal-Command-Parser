@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 #if !defined TRUE
         #define TRUE 1

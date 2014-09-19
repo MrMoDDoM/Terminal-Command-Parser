@@ -21,11 +21,11 @@ int flagToInt(char *input[], char *flag){
 	while (input[i]){
 		if(strcmp(input[i],flag)==0){ //Flag trovato!
 			if(input[i+1])        //Controllo anzi tutto che ci sia qualcosa dopo di lui
-				return checkInt(input[i+1]); //Poi controllo che sia un Int, e in caso lo restituisco
+				return (int) checkInt(input[i+1]); //Poi controllo che sia un Int, e in caso lo restituisco
 		} else i++; //Flag non trovato, procedo...
 	}
 
-	return NULL; //Se sono arrivato qui, il flag non e' stato trovato.
+	return NAN; //Se sono arrivato qui, il flag non e' stato trovato.
 }
 
 char *flagToString(char *input[], char *flag){
@@ -58,7 +58,7 @@ int posToInt(char *input[], int pos){
 	if(input[pos])
 		return checkInt(input[pos]); //Credo che sia possibile aggiungere controlli di sicurezza..
 
-	return NULL;
+	return NAN;
 }
 
 char *posToString(char *input[], int pos){
@@ -73,6 +73,6 @@ int checkInt(char *input){
 	int temp=0;
 
 	if(sscanf (input, "%i", &temp)!=1){
-		return NULL;
+		return NAN;
 	} else return temp;
 }
