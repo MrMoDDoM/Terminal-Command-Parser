@@ -14,7 +14,7 @@
 #include "parser.h"
 
 //Funzioni pubbliche. Utilizzare queste funzioni
-int flagToInt(char *input[], char *flag){
+int *flagToInt(char *input[], char *flag){
 
 	int i=0;
 
@@ -25,7 +25,7 @@ int flagToInt(char *input[], char *flag){
 		} else i++; //Flag non trovato, procedo...
 	}
 
-	return NAN; //Se sono arrivato qui, il flag non e' stato trovato.
+	return NULL; //Se sono arrivato qui, il flag non e' stato trovato.
 }
 
 char *flagToString(char *input[], char *flag){
@@ -53,12 +53,12 @@ int checkFlag(char *input[], char *flag){
 	return FALSE;
 }
 
-int posToInt(char *input[], int pos){
+int *posToInt(char *input[], int pos){
 
 	if(input[pos])
 		return checkInt(input[pos]); //Credo che sia possibile aggiungere controlli di sicurezza..
 
-	return NAN;
+	return NULL;
 }
 
 char *posToString(char *input[], int pos){
@@ -66,13 +66,15 @@ char *posToString(char *input[], int pos){
 	return input[pos]; //Credo che sia possibile aggiungere dei controlli di sicurezza..
 
 }
-
+//------------------------------------------------------------------------//
 //Funzioni private, utili alle funzioni interne
-int checkInt(char *input){
+int *checkInt(char *input){
 
-	int temp=0;
+	int temp_val=0;
 
-	if(sscanf (input, "%i", &temp)!=1){
-		return NAN;
+	int *temp=&temp_val;
+
+	if(sscanf (input, "%i", temp)!=1){
+		return NULL;
 	} else return temp;
 }

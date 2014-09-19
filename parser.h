@@ -25,19 +25,19 @@
 //---------HEADER----------------//
 
 //-----------Funzioni pubbliche-------------//
-int flagToInt(char *input[], char *flag);
+int *flagToInt(char *input[], char *flag);
 
 char *flagToString(char *input[], char *flag);
 
 int checkFlag(char *input[], char *flag);
 
-int posToInt(char *input[], int pos);
+int *posToInt(char *input[], int pos);
 
 char *posToString(char *input[], int pos);
 //------------------------------------------//
 
 //Funzioni private. NON USARE
 
-int checkInt(char *input);
+int *checkInt(char *input);
 
 //----------------------------//
