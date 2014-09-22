@@ -27,11 +27,15 @@
 //-----------Funzioni pubbliche-------------//
 int *flagToInt(char *input[], char *flag);
 
+float *flagToFloat(char *input[], char *flag);
+
 char *flagToString(char *input[], char *flag);
 
 int checkFlag(char *input[], char *flag);
 
 int *posToInt(char *input[], int pos);
+
+float *posToFloat(char *input[], int pos);
 
 char *posToString(char *input[], int pos);
 //------------------------------------------//
@@ -39,5 +43,7 @@ char *posToString(char *input[], int pos);
 //Funzioni private. NON USARE
 
 int *checkInt(char *input);
+
+float *checkFloat(char *input);
 
 //----------------------------//

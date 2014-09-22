@@ -21,7 +21,21 @@ int *flagToInt(char *input[], char *flag){
 	while (input[i]){
 		if(strcmp(input[i],flag)==0){ //Flag trovato!
 			if(input[i+1])        //Controllo anzi tutto che ci sia qualcosa dopo di lui
-				return (int) checkInt(input[i+1]); //Poi controllo che sia un Int, e in caso lo restituisco
+				return (int*) checkInt(input[i+1]); //Poi controllo che sia un Int, e in caso lo restituisco
+		} else i++; //Flag non trovato, procedo...
+	}
+
+	return NULL; //Se sono arrivato qui, il flag non e' stato trovato.
+}
+
+float *flagToFloat(char *input[], char *flag){
+
+	int i=0;
+
+	while (input[i]){
+		if(strcmp(input[i],flag)==0){ //Flag trovato!
+			if(input[i+1])        //Controllo anzi tutto che ci sia qualcosa dopo di lui
+				return (float*) checkFloat(input[i+1]); //Poi controllo che sia un Float, e in caso lo restituisco
 		} else i++; //Flag non trovato, procedo...
 	}
 
@@ -61,6 +75,14 @@ int *posToInt(char *input[], int pos){
 	return NULL;
 }
 
+float *posToFloat(char *input[], int pos){
+
+	if(input[pos])
+		return checkFloat(input[pos]); //Credo che sia possibile aggiungere controlli di sicurezza..
+
+	return NULL;
+}
+
 char *posToString(char *input[], int pos){
 
 	return input[pos]; //Credo che sia possibile aggiungere dei controlli di sicurezza..
@@ -75,6 +97,18 @@ int *checkInt(char *input){
 	int *temp=&temp_val;
 
 	if(sscanf (input, "%i", temp)!=1){
+		return NULL;
+	} else return temp;
+
+}
+
+float *checkFloat(char *input){
+
+	float temp_val=0;
+
+	float *temp=&temp_val;
+
+	if(sscanf (input, "%f", temp)!=1){
 		return NULL;
 	} else return temp;
 }
